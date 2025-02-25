@@ -1,0 +1,21 @@
+# Binaries
+*.exe
+*.o
+
+# Test binaries and results
+*_test
+*_test.exe
+testdata
+
+# Dependencies (Go modules)
+/vendor/
+go.sum
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Go specific
+/pkg/
