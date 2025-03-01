@@ -1,18 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
-
-namespace Findspace;
-public class Program
+using System.Text.Json.Serialization;
+record Hero
 {
-    public class Hero
-    {
-        public string Name { get; set; }
-        public int Strength { get; set; }
-    }
-
-    public static void Main(string[] args)
+    [JsonPropertyName("name")]
+    public required string Name { get; set; }
+    [JsonPropertyName("strength")]
+    public int Strength { get; set; }
+}
+class Find
+{
+    static void Main()
     {
         string heroesJson = @"[
             {""name"": ""Hulk"", ""strength"": 90000},
@@ -28,22 +25,17 @@ public class Program
             {""name"": ""Deadpool"", ""strength"": 1814},
             {""name"": ""Black Panther"", ""strength"": 1814}
         ]";
+        var heroes = JsonSerializer.Deserialize<List<Hero>>(heroesJson);
 
-        List<Hero> heroes = JsonSerializer.Deserialize<List<Hero>>(heroesJson);
-
-        Hero hulk = heroes.FirstOrDefault(hero => hero.Name == "Hulk");
-
+        var hulk = heroes.FirstOrDefault(hero => hero.Name == "Hulk");
         if (hulk != null)
-        {
             Console.WriteLine(JsonSerializer.Serialize(hulk));
-        }
-        else
-        {
+        else 
             Console.WriteLine("Hulk not found.");
-        }
+
     }
 }
 // execute in bash
-//dotnet run find
+//dotnet run 
 //expected result
-//
+//{"name":"Hulk","strength":90000}
