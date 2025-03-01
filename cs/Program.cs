@@ -4,8 +4,6 @@ class Program
 {
     public static void DoHeroes(List<Hero> heroes)
     {
-        //printall
-        //if (heroes != null) foreach (Hero h in heroes) Pr($"Name:{h.Name},Strength:{h.Strength}"); else Pr("Deserialization failed.");
         List<Hero> hulk = Find.FindFunc(heroes,"Hulk");
 
         if (hulk != null) Prin.ter(JsonSerializer.Serialize(hulk));
