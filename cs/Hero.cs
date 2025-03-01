@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-public record Hero
+public struct Hero
 {
     [JsonPropertyName("name")]
     public required string Name { get; set; }
