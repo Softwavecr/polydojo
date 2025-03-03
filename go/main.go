@@ -26,3 +26,8 @@ func main() {
 	}
 
 }
+
+//go run *.go.
+//expected result
+//{Hulk 90000}
+//{Spider-Man 25000}
