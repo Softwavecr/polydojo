@@ -7,5 +7,6 @@ function isHulk(hero) {
 var hulk = heroes.find(isHulk);
 
 console.log(hulk);
+//node find.js 
 //expected output
 //{ name: 'Hulk', strength: 90000 }
