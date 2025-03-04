@@ -18,14 +18,7 @@ class Program
             foreach (var n in names)
                 Prin.ter(n);
 
-        //Prin.ter("\n3- Map complete.\n");
-
-        Prin.ter("3- Map.");
-
-        if (names != null) 
-            foreach (var n in names)
-                Prin.ter(n);
-
+        Prin.ter("\n");
     }    
     public static void Main()
     {
