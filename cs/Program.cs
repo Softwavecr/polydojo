@@ -30,7 +30,7 @@ class Program
         Prin.ter("\n");
 
     }
-    static Func<Hero, string> AppendSymbol = hero => hero.Name + "!";
+    static readonly Func<Hero, string> AppendSymbol = hero => hero.Name + "!";
     static bool Strong(Hero hero) => hero.Strength >= 2000;
     public static void Main()
     {
