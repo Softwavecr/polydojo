@@ -1,6 +1,6 @@
 package main
 
-func FindHeroByName(heroes []Hero, name string) (Hero, bool) {
+func FindFunc(heroes []Hero, name string) (Hero, bool) {
 	for _, hero := range heroes {
 		if hero.Name == name {
 			return hero, true
