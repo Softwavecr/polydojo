@@ -1,5 +1,5 @@
-public static class Prin
+public static class Print
 {
-    public static void ter(string s) => 
+    public static void Do(string s) => 
         Console.Write(s + " ");
 }
