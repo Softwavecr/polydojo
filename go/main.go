@@ -18,13 +18,12 @@ func main() {
 		fmt.Println("Hulk not found")
 	}
 
-	spiderMan, found := FindHeroByName(heroes, "Spider-Man")
-	if found {
-		fmt.Println(spiderMan)
-	} else {
-		fmt.Println("Spider-Man not found")
-	}
+	filterHeroes := Filter(heroes, Strong)
+	fmt.Println("Filtered Heroes:", filterHeroes)
+}
 
+func Strong(hero Hero) bool {
+	return hero.Strength >= 2000
 }
 
 //go run *.go.

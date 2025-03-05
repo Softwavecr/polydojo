@@ -1,6 +1,5 @@
 package main
 
-// FindHeroByName finds a hero by their name.
 func FindHeroByName(heroes []Hero, name string) (Hero, bool) {
 	for _, hero := range heroes {
 		if hero.Name == name {
