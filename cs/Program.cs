@@ -2,33 +2,27 @@ using System.Text.Json;
 namespace polydojo;
 class Program
 {    
-    public static void DoHeroes(List<Hero> heroes)
+    private static void DoHeroes(List<Hero> heroes)
     {
-         List<Hero> hulk = Find.FindFunc(heroes,"Hulk");
+        Print.Do(" 1- Print: Hello, Heroes\n");
 
-         var names = Map.MapFunc(heroes, AppendSymbol);
+        List<Hero> hulk = Find.FindFunc(heroes,"Hulk");
 
-         if (hulk != null) Prin.ter("2- Find Hulk: "+JsonSerializer.Serialize(hulk)+'\n');
-         else Prin.ter("2- Find Hulk: Hulk not found.\n");
+        var names = Map.MapFunc(heroes, AppendSymbol);
+        if (hulk != null) Print.Do("2- Find: "+JsonSerializer.Serialize(hulk)+'\n');
 
-        Prin.ter("3- Map. ");
-        if (names != null) 
-            foreach (var n in names)
-                Prin.ter(n);
+        Print.Do("3- Map:");
+        foreach (var n in names)
+            Print.Do(n);
 
-        Prin.ter("\n");
+        Print.Do("\n");
 
-        Prin.ter("4- Filter. ");
-
-        var filteredHeroes = 
-            heroes.FilterFunc(Strong);
-
-        if (filteredHeroes != null) 
-            foreach (var h in filteredHeroes)
-                Prin.ter(h.Name + " "+ h.Strength+ " ");
-
-        Prin.ter("\n");
-
+        Print.Do("4- Filter: ");
+        var filteredHeroes = heroes.FilterFunc(Strong);
+        
+        foreach (var h in filteredHeroes)
+            Print.Do(h.Name + " "+ h.Strength+ " ");
+        
     }
     static readonly Func<Hero, string> AppendSymbol = hero => hero.Name + "!";
     static bool Strong(Hero hero) => hero.Strength >= 2000;
@@ -37,10 +31,10 @@ class Program
         string filePath = "data.json";
         try
         {
-            Prin.ter("1- Print: Hello, J\n");
             string jsonString = File.ReadAllText(filePath);
-            List<Hero> heroes = JsonSerializer.Deserialize<List<Hero>>(jsonString);
+            var heroes = JsonSerializer.Deserialize<List<Hero>>(jsonString) ?? [];
             DoHeroes(heroes);
+            Print.Do("\n");
         }
         catch (Exception ex)
         {
